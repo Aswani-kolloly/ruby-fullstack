@@ -1,0 +1,4 @@
+<h1>Edit</h1>
+ <%= form_tag url_for(action: 'update'), method:'put',multipart:true do %>
+<%= render partial:'books/new', book: @book%>
+    <% end -%>

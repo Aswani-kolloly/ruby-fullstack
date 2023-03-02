@@ -1,0 +1,20 @@
+  <!--feeds-->
+      <div class="col-md-7">
+        <div class="h-100 p-5 bg-light  rounded-3">
+          <h3>Your Most Recent Post Appear here..</h3>
+          <% if @recent_book.present? %>
+          <p><%=@recent_book.title%></p>
+          <p><%=@recent_book.description%></p>
+          <p><%=@recent_book.price%></p>
+          <p><%=Subject.find(@recent_book.subject_id).name%></p>
+          
+          <% else %>
+          <p>Hmm.. You've no saved posts yet</p>
+          <% end %>
+          
+          <%=link_to 'View All Posts',books_path,class:'btn btn-outline-dark px-3 py-2'%>
+        </div>
+      </div>
+    </div><!--extra div for stretch in _new-->
+    
+    <!--ends-->

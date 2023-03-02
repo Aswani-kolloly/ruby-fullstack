@@ -1,0 +1,26 @@
+
+<div class="container py-4 ">
+<%= link_to( 'Export Data' ,{ :controller => :books, :action => :csv_data, format: 'csv'}, { :class => "btn btn-primary" } ) %>
+<div class="card-group ">
+  <% @books.each do |book| %>
+  <div class="card ">
+  <%= image_tag(book.image, height: '220') if book.image.attached? %>
+  
+    <div class="card-body">
+      <h5 class="card-title"><%=book.title%></h5>
+      <p class="card-text"><%=book.description%></p>
+      <p class="card-text"><small class="text-muted"><%=book.price%></small></p>
+      <div class=" btn-group" role="group" aria-label="Basic example">
+      <%=link_to 'Edit',"books/#{book.id}/edit",class:'btn btn-outline-dark px-4 py-1'%>
+      
+     <%= button_to "Delete", {:controller => :books,:action => 'destroy', :id => book.id }, :method => :delete,class:'btn btn-outline-dark float-right px-4 py-1' %>
+      </div> 
+     
+    </div>
+  </div>
+ <% end %>
+  
+</div>
+<br>
+<%= will_paginate @books, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,list_classes: %w(pagination justify-content-center)   %>
+</div>

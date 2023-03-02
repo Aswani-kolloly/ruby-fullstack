@@ -1,0 +1,8 @@
+<div id="<%= dom_id book %>">
+
+ <td><%= book.title %></td>
+ <td><%= book.price %></td>
+ <td><%= book.description %></td>
+ <td><%= Subject.find(book.subject_id).name %></td>
+
+</div>
